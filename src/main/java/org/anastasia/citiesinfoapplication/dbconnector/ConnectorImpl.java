@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Service
-public class PostgresConnector implements Connector {
+public class ConnectorImpl implements Connector {
 
     @Value("${url}")
     private String url;
