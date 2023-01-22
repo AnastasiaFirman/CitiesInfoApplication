@@ -19,6 +19,11 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City save(City city) {
+        return cityDao.save(city);
+    }
+
+    @Override
     public City findById(Long id) {
         return cityDao.findById(id).orElseThrow(CityNotFoundException::new);
     }
@@ -34,17 +39,20 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void deleteAll() {
-        cityDao.deleteAll();
-    }
-
-    @Override
     public void deleteById(Long id) {
+        cityDao.findById(id).orElseThrow(CityNotFoundException::new);
         cityDao.deleteById(id);
     }
 
     @Override
     public void deleteByRegionNumber(int regionNumber) {
+        cityDao.findByRegionNumber(regionNumber).orElseThrow(CityNotFoundException::new);
         cityDao.deleteByRegionNumber(regionNumber);
+    }
+
+    @Override
+    public City update(Long id, City city) {
+        cityDao.findById(id).orElseThrow(CityNotFoundException::new);
+        return cityDao.update(id, city);
     }
 }

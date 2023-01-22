@@ -51,39 +51,33 @@ public class CityDaoImpl implements CityDao {
 
     @Override
     public Optional<City> findById(Long id) {
-        City city;
         try (Connection connection = connector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID)) {
             preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                city = buildCity(resultSet);
-            } else {
-                return Optional.empty();
+                return Optional.of(buildCity(resultSet));
             }
+                return Optional.empty();
         } catch (SQLException e) {
             throw new SQLProcessingException(e.getMessage());
         }
-        return Optional.of(city);
     }
 
     @Override
     public Optional<City> findByRegionNumber(int regionNumber) {
-        City city;
         try (Connection connection = connector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_REGION_NUMBER)) {
             preparedStatement.setInt(1, regionNumber);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                city = buildCity(resultSet);
-            } else {
-                return Optional.empty();
+                return Optional.of(buildCity(resultSet));
             }
+                return Optional.empty();
         } catch (SQLException e) {
             throw new SQLProcessingException(e.getMessage());
         }
-        return Optional.of(city);
     }
 
     @Override
@@ -137,8 +131,6 @@ public class CityDaoImpl implements CityDao {
     public City update(Long id, City city) {
         try (Connection connection = connector.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BY_ID)) {
-            findById(id);
-
             preparedStatement.setString(1, city.getName());
             preparedStatement.setInt(2, city.getRegionNumber());
             preparedStatement.setLong(3, id);

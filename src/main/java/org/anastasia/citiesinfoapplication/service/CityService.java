@@ -6,16 +6,17 @@ import java.util.List;
 
 public interface CityService {
 
+    City save(City city);
+
     City findById (Long id);
 
     City findByRegionNumber (int regionNumber);
 
     List<City> findAll ();
 
-    void deleteAll();
-
     void deleteById(Long id);
 
     void deleteByRegionNumber(int regionNumber);
 
+    City update(Long id, City city);
 }
