@@ -1,5 +1,4 @@
 create table city (
-id serial primary key,
-name text,
-region_number int
+region_number int primary key,
+name text
 );

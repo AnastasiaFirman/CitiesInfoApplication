@@ -8,15 +8,11 @@ public interface CityService {
 
     City save(City city);
 
-    City findById (Long id);
-
-    City findByRegionNumber (int regionNumber);
+    City findByRegionCode(String regionCode);
 
     List<City> findAll ();
 
-    void deleteById(Long id);
+    void deleteByRegionCode(String regionCode);
 
-    void deleteByRegionNumber(int regionNumber);
-
-    City update(Long id, City city);
+    City update(String regionCode, City city);
 }

@@ -8,18 +8,14 @@ import java.util.Optional;
 public interface CityDao {
     City save(City city);
 
-    Optional<City> findById(Long id);
-
-    Optional<City> findByRegionNumber(int regionNumber);
+    Optional<City> findByRegionCode(String regionCode);
 
     List<City> findAll();
 
     void deleteAll();
 
-    void deleteById(Long id);
+    void deleteByRegionCode(String regionCode);
 
-    void deleteByRegionNumber(int regionNumber);
-
-    City update (Long id, City city);
+    City update (String regionCode, City city);
 
 }

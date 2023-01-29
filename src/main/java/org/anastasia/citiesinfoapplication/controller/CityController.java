@@ -19,14 +19,9 @@ public class CityController {
         return cityService.findAll();
     }
 
-    @GetMapping("/api/v1/city/{id}")
-    public City findById(@PathVariable("id") Long id) {
-        return cityService.findById(id);
-    }
-
-    @GetMapping("/api/v2/city/{regionNumber}")
-    public City findByRegionNumber(@PathVariable("regionNumber") Integer regionNumber) {
-        return cityService.findByRegionNumber(regionNumber);
+    @GetMapping("/api/v2/city/{regionCode}")
+    public City findByRegionCode(@PathVariable("regionCode") String regionCode) {
+        return cityService.findByRegionCode(regionCode);
     }
 
     @PostMapping("/api/v1/city")
@@ -34,14 +29,14 @@ public class CityController {
         return cityService.save(city);
     }
 
-    @PatchMapping("/api/v1/city/{id}")
-    public City update(@RequestBody City city, @PathVariable("id") Long id) {
-        return cityService.update(id, city);
+    @PutMapping("/api/v1/city/{regionCode}")
+    public City update(@RequestBody City city, @PathVariable("regionCode") String regionCode) {
+        return cityService.update(regionCode, city);
     }
 
-    @DeleteMapping("/api/v1/city/{id}")
-    public void deleteById(@PathVariable("id") Long id) {
-        cityService.deleteById(id);
+    @DeleteMapping("/api/v1/city/{regionCode}")
+    public void deleteByRegionCode(@PathVariable("regionCode") String regionCode) {
+        cityService.deleteByRegionCode(regionCode);
     }
 
 }

@@ -1,3 +1,8 @@
-url: jdbc:postgresql://localhost:5432/cityinfo
-user: postgres
-password: postgres
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cityinfo
+    username: postgres
+    password: postgres
+
+  liquibase:
+    change-log: classpath:/liquibase-changelog.xml

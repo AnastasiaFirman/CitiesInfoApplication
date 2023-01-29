@@ -3,33 +3,17 @@ package org.anastasia.citiesinfoapplication.model;
 import java.util.Objects;
 
 public class City {
-    private Long id;
     private String name;
-    private int regionNumber;
+    private String regionCode;
 
 
-    public City(Long id, String name, int regionNumber) {
-        this.id = id;
+    public City(String name, String regionCode) {
         this.name = name;
-        this.regionNumber = regionNumber;
-    }
-
-    public City(String name, int regionNumber) {
-        this.name = name;
-        this.regionNumber = regionNumber;
+        this.regionCode = regionCode;
     }
 
     public City() {
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -38,20 +22,20 @@ public class City {
         this.name = name;
     }
 
-    public int getRegionNumber() {
-        return regionNumber;
+    public String getRegionCode() {
+        return regionCode;
     }
 
-    public void setRegionNumber(int regionNumber) {
-        this.regionNumber = regionNumber;
+    public void setRegionCode(String regionCode) {
+        this.regionCode = regionCode;
     }
+
 
     @Override
     public String toString() {
         return "City{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", regionNumber=" + regionNumber +
+                "name='" + name + '\'' +
+                ", regionNumber=" + regionCode +
                 '}';
     }
 
@@ -60,11 +44,11 @@ public class City {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
-        return regionNumber == city.regionNumber && Objects.equals(name, city.name);
+        return regionCode == city.regionCode && Objects.equals(name, city.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, regionNumber);
+        return Objects.hash(name, regionCode);
     }
 }
