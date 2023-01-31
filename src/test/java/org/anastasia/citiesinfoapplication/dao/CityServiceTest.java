@@ -24,14 +24,13 @@ public class CityServiceTest extends BaseIntegrationTest{
         this.dataSource = dataSource;
     }
 
-
     @AfterEach
     void deleteAll() {
         cityDao.deleteAll();
     }
 
     @Test
-    void saveAndFindByRegionNumberTest() {
+    void saveAndFindByRegionCodeTest() {
         City city = new City("Калининград", "39");
         cityDao.save(city);
         City foundCityByRegionNumber = cityDao.findByRegionCode(city.getRegionCode()).get();

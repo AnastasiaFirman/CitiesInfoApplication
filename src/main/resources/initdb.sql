@@ -1,4 +1,4 @@
 create table city (
-region_number int primary key,
+region_code int primary key,
 name text
 );

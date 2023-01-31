@@ -19,7 +19,7 @@ public class CityController {
         return cityService.findAll();
     }
 
-    @GetMapping("/api/v2/city/{regionCode}")
+    @GetMapping("/api/v1/city/{regionCode}")
     public City findByRegionCode(@PathVariable("regionCode") String regionCode) {
         return cityService.findByRegionCode(regionCode);
     }

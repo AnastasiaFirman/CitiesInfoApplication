@@ -23,9 +23,9 @@ public class CityDaoImpl implements CityDao {
     private static final String DELETE_BY_REGION_CODE = "delete from city where region_code = ?;";
     private static final String UPDATE_BY_REGION_CODE = "update city set name = ? where region_code = ?;";
 
-    @Autowired
     private final DataSource dataSource;
 
+    @Autowired
     public CityDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
